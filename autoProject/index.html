@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Rent-a-Car</title>
+   <meta name="description" content="">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+      <a class="navbar-brand" href="#"> Rent <span class="orangetext">A</span> Car <img width="50px" height="auto"
+            src="images/car-sharing.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+         <div class="navbar-nav mx-auto">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#fleet">vehicles</a>
+
+            <a class="nav-item nav-link" href="#test">Testomonials</a>
+            <a class="nav-item nav-link" href="#form2">Book Now</a>
+         </div>
+         <div class="navbar-nav ma-auto ">
+            <button id="signInButton" class="orange"> Sign-In
+            
+            </button>
+         </div>
+      </div>
+   </nav>
+
+
+
+
+
+   <div class="image-container">
+      <img height="400px" src="images/jonatan-pie-8I49k45G-3A-unsplash.jpg" alt="Your Image">
+      <div class="text-container">
+         <h1>Lets Make</h1>
+         <h1> <span class="orangetext">Your</span> Best </h1>
+         <h1>Trip. Ever.</h1>
+      </div>
+   </div>
+   <br>
+   <br>
+   <form id="form2">
+      <br>
+
+      <div>
+         <h3 style="padding-left: 10px;" class="boldh3">Book <span class="orangetext">Your </span> <span id="veh"> Car </span></h3>
+      </div>
+
+
+      <div id="form" style="display: flex; flex-wrap: wrap;">
+         <div style="width: 30%; height: 40px;">
+            <label class="formBold" for="dropdown1"> <img class="smallImg" src="images/front-car.png"> Select Your <span
+                  class="orangetext"> <span id="vehicle"> car  </span></label>
+            <select name="select1" id="select1" style="width: 100%; height: 100%;">
+               <option value="">-- Select car type --</option>
+               <option value="BMW 1 Series">BMW 1 Series</option>
+               <option value="Mercedes CLK">Mercedes CLK</option>
+               <option value="Volkswagen Golf">Volkswagen Golf</option>
+               <option value="Volkswagen Passat">Volkswagen Passat</option>
+               <option value="Audi A1">Audi A1</option>
+               <option value="Toyota Camry">Toyota Camry</option>
+            </select>
+         </div>
+         <div style="width: 30%; height: 40px;">
+            <label class="formBold" for="dropdown2"> <img class="smallImg" src="images/pin (1).png"> Pick-Up
+               <span class="orangetext">Location</span> </label>
+            <select name="select2" id="select2" style="width: 100%; height: 100%;">
+               <option value="">-- Select Pick up Place --</option>
+               <option value="REYKJAVIC AIRPORT">REYKJAVIC AIRPORT</option>
+               <option value="REYKJAVIC">REYKJAVIC</option>
+               <option value="HUSAVIK">HUSAVIK</option>
+               <option value="VIM">VIM</option>
+            </select>
+         </div>
+         <div style="width: 30%; height: 40px;">
+            <label class="formBold" for="dropdown3"> <img class="smallImg" src="images/pin (1).png"> Drop-Off
+               <span class="orangetext">Location</span></label>
+            <select name="select3" id="select3" style="width: 100%; height: 100%;">
+               <option value="">-- Select Drop Off Place --</option>
+               <option value="REYKJAVIC AIRPORT">REYKJAVIC AIRPORT</option>
+               <option value="REYKJAVIC">REYKJAVIC</option>
+               <option value="HUSAVIK">HUSAVIK</option>
+               <option value=" VIM">VIM</option>
+            </select>
+         </div>
+      </div>
+
+      <br>
+      <br>
+      <div id="form7"  style="display: flex; flex-wrap: wrap;">
+         <div style="width: 30%; height: 40px;">
+            <label class="formBold" for="startDate"><img class="smallImg" src="images/calendar (1).png"> Pick-Up
+               <span class="orangetext">Date</span></label>
+            <input type="date" id="date1" name="date1" style="width: 100%; height: 100%;">
+         </div>
+         <div style="width: 30%; height: 40px;">
+            <label class="formBold" for="endDate"><img class="smallImg" src="images/calendar (1).png"> Drop-Off <span
+                  class="orangetext">Date</span></label>
+            <input type="date" id="date2" name="date2" style="width: 100%; height: 100%;">
+         </div>
+         <div style="width: 30%; height: 40px;">
+            <!-- Button trigger modal -->
+            <label class="formBold" for="endDate"><img class="smallImg" src="images/calendar (1).png">Click <span
+                  class="orangetext">Me</span></label>
+            <button type="button" style="width: 100%; height: 100%;" class="btn orange" data-toggle="modal"
+               data-target="#exampleModal" onclick="displaySelectedData()">
+               Search
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+               aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title boldh3" id="exampleModalLabel"> <span class="orangetext">Confirm </span>
+                           your reservation</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div>
+                        <h6 id="reserve" class="boldh6"> <img class="smallImg" src="images/warn.png"> <span
+                              class="boldh3">Upon
+                              Placing your order<br> <br> your details
+                              will
+                              be
+                              comfirmed then you shall
+                              recieve an email with your order details. The reservation number will be needed when
+                              collecting your vehicle.</span></h6>
+                        <hr>
+                     </div>
+                     <h5 id="selectHeader" class="boldh3">You have <span class="orangetext"> selected: </span></h5>
+                     <div id="selected-data"></div>
+                     <div class="modal-body">
+                        <hr>
+
+                        <form id="form4">
+                           <br>
+                           <h5 class="boldh3"><span class="orangetext">Your</span> details</h5>
+                           <br>
+                           <label class="boldh3" for="first_name">First Name:</label>
+                           <input type="text" id="first_name" name="first_name" required
+                              style="width: 100%; height: 40px; background-color: lightgray;"><small class="boldh3">This
+                              field is required *</small><br><br>
+
+                           <label class="boldh3" for="surname">Surname:</label>
+                           <input type="text" id="surname" name="surname" required
+                              style="width: 100%; height: 40px; background-color: lightgray;"><small class="boldh3">This
+                              field is required *</small><br><br>
+
+                           <label class="boldh3" for="email">Email:</label>
+                           <input type="email" id="email" name="email" required
+                              style="width: 100%; height: 40px; background-color: lightgray;"><small class="boldh3">This
+                              field is required *</small><br><br>
+
+                           <label class="boldh3" for="age">Age:</label>
+                           <input type="number" id="age" name="age" required
+                              style="width: 100%; height: 40px; background-color: lightgray;"><small class="boldh3">This
+                              field is required *</small><br><br>
+
+                           <label class="boldh3" for="phone">Phone Number:</label>
+                           <input type="tel" id="phone" name="phone" required
+                              style="width: 100%; height: 40px; background-color: lightgray;"><small class="boldh3">This
+                              field is required *</small><br><br>
+                           <label class="boldh3">
+                              <input type="checkbox" name="signup" value="yes">
+                              Please click to sign up for latest offers.
+                           </label>
+                           <br>
+                           <div id="message" style="display: none;">
+                              <h1 class="boldh1">Thank you for your order!</h1>
+                              <h3 class="boldh3 orangetext">Please check your email and spam folders for confimation
+                                 number.</h3>
+                           </div>
+                           <input id="submitbutton" class="btn orange" type="submit" value="Place Order" onclick="return submitForm();">
+
+
+
+                          
+                        </form>
+
+
+                     </div>
+
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+
+
+   <br>
+   <br>
+   <br>
+   <br>
+
+
+   <div class="container">
+      <h4 class="boldh3">Quick And Simple</h4>
+      <br>
+      <h1 class="boldh1"> <span class="orangetext">Booking</span> Process</h1>
+      <br>
+      <h6 class="boldh3">It really is this simple. follow these 3 steps to book your car, today!</h6><br><br>
+      <div class="row">
+         <div class="column">
+            <img class="mediumImg" src="images/front-car.png" alt="Image 1"><br><br>
+            <h3 class="boldh3">Select <span class="orangetext">your</span> Vehicle</h3> <br>
+            <h6 class="boldh3">Choose your dream car</h6>
+         </div>
+         <div class="column">
+            <img class="mediumImg" src="images/call-center.png" alt="Image 2"><br><br>
+            <h3 class="boldh3">Please <span class="orangetext">contact</span> us</h3> <br>
+            <h6 class="boldh3">Reserve by filling out the form, or calling us.</h6>
+         </div>
+         <div class="column">
+            <img class="mediumImg" src="images/man-with-car.png" alt="Image 3"><br><br>
+            <h3 class="boldh3">Drive <span class="orangetext">away</span> today!</h3> <br>
+            <h6 class="boldh3">Once your booking is confirmed, collect and drive away!</h6>
+         </div>
+      </div>
+
+   </div>
+
+
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <div class="hero">
+      <div class="hero-content">
+         <h4 class="boldh3">Save big</h4>
+         <h1 class="boldh1">With Weekly <span class="orangetext">and</span> Monthly discounts</h1>
+         <img height="auto" width="50px" src="images/fire.png">
+         <br>
+         <br>
+         <button class="orange "> <a id="button1" href="#form2"> Search Now </a></button>
+
+      </div>
+   </div>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   </div>
+   </div>
+   <div id="fleet" class="container">
+      <h4 class="boldh3">Browse Through Our Most</h4>
+      <br>
+      <h1 class="boldh1"><span class="orangetext">Popular </span> Vehichles</h1>
+      <br>
+      <h6 class="boldh3">Our rental fleet cars that our most in demand, and with the best prices!</h6><br><br>
+   </div>
+   <div class="slider-container">
+      <div class="slider">
+         <div class="slide">
+            <img src="images/vw.jpg">
+            <div class="caption">
+               <h4>VW Passat</h4>
+               <h6>Diesel/4dr</h6>
+               <h6>From $39.99/day</h6>
+               <button class="orange"> <a class="orange" href="#form2">Book Now</a></button>
+            </div>
+         </div>
+         <div class="slide">
+            <img src="images/golf.jpg" alt="Image 2">
+            <div class="caption">
+               <h4>VW Golf</h4>
+               <h6>Petrol/4dr</h6>
+               <h6>From $44.99/day</h6>
+               <button class="orange"> <a class="orange" href="#form2">Book Now</a></button>
+            </div>
+         </div>
+         <div class="slide">
+            <img src="images/merc.jpg" alt="Image 1">
+            <div class="caption">
+               <h4>Mercedes CLK</h4>
+               <h6>Diesel/4dr</h6>
+               <h6>From $49.99/day</h6>
+               <button class="orange"> <a class="orange" href="#form2">Book Now</a></button>
+            </div>
+         </div>
+         <div class="slide">
+            <img src="images/bmw2.jpg
+            " alt="Image 2">
+            <div class="caption">
+               <h4>BMW 1 Series</h4>
+               <h6>Diesel/5dr</h6>
+               <h6>From $49.99/day</h6>
+               <button class="orange"> <a class="orange" href="#form2">Book Now</a></button>
+            </div>
+         </div>
+         <div class="slide">
+            <img src="images/toyota.jpg" alt=" Image 1">
+            <div class="caption">
+               <h4>Toyota Camry</h4>
+               <h6>Petol/5dr</h6>
+               <h6>From $39.99/day</h6>
+               <button class="orange"> <a class="orange" href="#form2">Book Now</a></button>
+            </div>
+         </div>
+         <div class="slide">
+            <img src="images/audi.jpg" alt="Image 2">
+            <div class="caption">
+               <h4>Audi A1</h4>
+               <h6>Petol/2dr</h6>
+               <button class="orange"> <a class="orange" href="#form2">Book Now</a></button>
+            </div>
+         </div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+   </div>
+
+
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+
+   <div class="container3"
+      style="background-image: url('images/drew-beamer-kUHfMW8awpE-unsplash\ \(1\).jpg');  background-size: 100% auto; height:100%; background-repeat: no-repeat;">
+      <div class="row">
+         <div class="col-md-12 text-center">
+            <br>
+            <div class="text-box">
+               <h3 class="boldh3">FAQ's</h3>
+               <br>
+               <h1 class="boldh1">Frequently asked <span class="orangetext">Questions</span> </h1>
+               <br>
+               <h5 class="boldh3">Search through and find answers, or contact us!</h5>
+               <br><br>
+            </div>
+         </div>
+
+      </div>
+
+
+
+      <div class="container4">
+      </div>
+      <div
+         style="background-image: url('images/mercedes.png'); margin-left: 10px; background-size: 30% auto; background-repeat: no-repeat; background-position: left;"
+         class="row justify-content-center">
+         <div class="col-md-8">
+            <div class="accordion">
+               <div class="dropdown">
+                  <div class="dropdown-header active boldh3" data-toggle="dropdown">Do i need to book
+                     advance?</div>
+                  <div class="dropdown-content">
+                     <div class="card-body boldh3">
+
+                        Yes, it is generally recommended that you book your car rental in advance, especially if you
+                        are
+                        traveling during peak season or if you need a specific type of vehicle. Even though
+                        last-minute
+                        rental cars can be cheaper, it might not be a good idea to procrastinate on booking, whether
+                        intentionally or not, and booking in advance can help ensure that you get the vehicle you
+                        need.
+                        KAYAK suggests that the best time to book a car is six to twelve months in advance if you’re
+                        traveling with a big group during peak season, but it’s okay to book closer to the rental
+                        date
+                        if you’re traveling in the off-season.
+
+
+
+                     </div>
+                  </div>
+               </div>
+               <div class="dropdown">
+                  <div class="dropdown-header boldh3" data-toggle="dropdown">Why are your cars such good value?</div>
+                  <div class="dropdown-content">
+                     <div class="card-body boldh3">
+                        Renting a car occasionally throughout the year could save you money compared to buying a
+                        luxury
+                        automobile to use every day. For example, a two-day luxury car rental in New York City in
+                        June
+                        2020 would cost around $202 at Thrifty Car Rental and $227 at Enterprise. Buying an average
+                        entry-level luxury car costs $40,000 as of January 2020. Additionally, rental car companies
+                        follow maintenance schedules strictly to keep their vehicles in top condition, which is in
+                        their
+                        best interest to do so.
+
+                     </div>
+                  </div>
+               </div>
+               <div class="dropdown">
+                  <div class="dropdown-header boldh3" data-toggle="dropdown">Is there discount for multi day deals?
+                  </div>
+                  <div class="dropdown-content">
+                     <div class="card-body boldh3">
+                        Yes, our car rental companies offer discounts for multi-day rentals. Generally, the longer
+                        the
+                        rental period, the larger the discount. For example, we offer a discount of up to 20% off
+                        the base rate for rentals of 7 days or more. Additionally, our car rental companie
+                        offer special rates for weekend rentals or for rentals that span a holiday or other special
+                        event. It's always a good idea to check directly or to search for promo
+                        codes online to ensure you're getting the best deal possible.
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <br>
+      <br>
+   </div>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+
+
+
+
+   <div id="thirdCon" class="container3">
+      <div class="row">
+         <div class="col-md-12 text-center" id="mercDiv"
+            style="background-image: url('images/luke-oslizlo-WEww-gMUNt8-unsplash-removebg-preview\ \(1\)\ \(1\).png'); margin-right: 10px; background-size: 30% auto; background-repeat: no-repeat; background-position: right;">
+            <br>
+            <h3 class="boldh3">Why choose us?</h3>
+            <br>
+            <h1 class="boldh1">Why <span class="orangetext">we</span> are <span class="neworange"> number 1 </span><h1>
+                  <br><br>
+
+
+         </div>
+      </div>
+
+
+
+      <div class="vertical-sections">
+         <div class="section">
+            <img src="images/wallet-filled-money-tool.png" alt="Image 1" class="small-image">
+            <div class="text">
+
+               <h3 class="boldh3"> <span class="orangetext">Saving </span> you Money</h3>
+               </span> <br>
+               <h6 class='boldh3'>Our goal is to save you money providing the best value car rental deals.</h6>
+            </div>
+         </div>
+
+         <div class="section">
+            <img src="images/protection.png" alt="Image 2" class="small-image">
+            <div class="text">
+               <h3 class="boldh3">Fully <span class="orangetext"> Insured</span></h3><br>
+               <h6 class='boldh3'>You'll be fully insured by our international insurance company, so if the worst was to
+                  happened,
+                  you
+                  and
+                  your family are covered.</h6>
+            </div>
+         </div>
+
+         <div class="section">
+            <img src="images/handshake.png" alt="Image 3" class="small-image">
+            <div class="text">
+               <h3 class="boldh3">Price Match <span class="orangetext">
+                     guarantee </span></h3><br>
+               <h6 class='boldh3'>We're confident our pricess are the best around. If you see a like-for-like deal,
+                  we'll beat it,
+                  and
+                  give you 10% off.</h6>
+            </div>
+         </div>
+
+
+         <div class="section">
+            <img src="images/satisfaction.png" alt="Image 4" class="small-image">
+            <div class="text">
+               <h3 class="boldh3"><span class="orangetext">Satisfaction </span>
+                  guaranteed</h3><br>
+               <h6 class='boldh3'>We are here to make this process, quick, simple and effective. We want you to be 100%
+                  happy.We go
+                  the
+                  extra mile!</h6>
+            </div>
+         </div>
+
+
+      </div>
+   </div>
+   <br>
+   <br>
+   <br>
+   <br>
+
+   <div id="test" class="container5"
+      style="background-image: url('images/drew-beamer-kUHfMW8awpE-unsplash\ \(1\).jpg');  background-size: 100% auto;  background-repeat: no-repeat;">
+
+      <div>
+         <br>
+         <br> <strong>
+            <h1 class="boldh1">Customer <span class="orangetext">Reviews</span> </h1>
+         </strong>
+         <br>
+         <h6 class="boldh3">See why we really do care about your experience!</h6>
+
+      </div>
+      <div class="side-by-side">
+         <div class="left-box box">
+            <div class="image5"> <img src="images/anrnie.jpg" alt=""></div>
+
+            <br>
+            <h1 class="boldh1"> <span class="orangetext">Arnold </span> Schwarzenegger</h1> <br>
+            <h6 class="boldh3">California</h6>
+            <div class="stars">
+               <img src="images/star.png" alt="starImage">
+               <img src="images/star.png" alt="starImage">
+               <img src="images/star.png" alt="starImage">
+               <img src="images/star.png" alt="starImage">
+               <img src="images/star.png" alt="starImage">
+            </div>
+            <br>
+            <h5 class="boldh3">"This was a great expeirence for me. great car, quick and easy pickup and delivery and a
+               cheap price.
+               <br> <span class="orangetext boldh3"> I'll Be Back"</span>
+            </h5> <br>
+            <img class="quotes" src="images/quotation-marks.png">
+         </div>
+         <div class="right-box box">
+            <div class="image5"> <img src="images/stevieg.jpg" alt=""></div>
+            <br>
+            <h1 class="boldh1"><span class="orangetext ">Steven</span> Gerrard</h1> <br>
+            <h6 class="boldh3">Liverpool</h6>
+            <div class="stars">
+               <img src="images/star.png" alt="starImage">
+               <img src="images/star.png" alt="starImage">
+               <img src="images/star.png" alt="starImage">
+               <img src="images/star.png" alt="starImage">
+               <img src="images/star.png" alt="starImage">
+            </div>
+            <br>
+
+            <h5 class="boldh3">"Eeee i had a hassle free time with rent a car. <span class="orangetext boldh3"> The
+                  staff were really great
+               </span> and friendly, probably
+               because
+               i slipped over when leaving!"</h5><br>
+            <img class="quotes" src="images/quotation-marks.png">
+         </div>
+
+      </div>
+      <br> <a href="https://www.tripadvisor.co.uk/">
+      <img  class="quotes" src="images/tripadvisor (1).png"></a> 
+      <h5 class="boldh3">  Trip Advisor <span class="orangetext">rating</span> </h5>
+
+      <div class="stars">
+         <img src="images/star.png" alt="starImage">
+         <img src="images/star.png" alt="starImage">
+         <img src="images/star.png" alt="starImage">
+         <img src="images/star.png" alt="starImage">
+         <img src="images/star.png" alt="starImage">
+
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+
+   </div>
+   <br>
+   </div>
+
+
+
+
+   <footer>
+      <div class="footer-section">
+         <h3 class="boldh3"> Rent-A-Car</h3>
+         <h3> <span class="orangetext">Contact </span> Us</h3>
+         <h5 class="boldh3"> <img class="footImage" src="images/phone-call (1).png"> + (354) 111 222 </h5>
+         <br>
+         <h5 class="boldh3"> <img class="footImage" src="images/email.png"> rent-a-car@gmail.com</h5>
+      </div>
+      <div class="footer-section">
+         <br>
+
+         <h3> <span class="orangetext">Where</span> to Find us.</h3>
+         <h5 class="boldh3"> <img class="footImage" src="images/pin (1).png"> Reykjavik Airport</h5>
+         <br>
+
+         <h5 class="boldh3"> <img class="footImage" src="images/pin (1).png"> 106 Cold Avenue</h5>
+         <h5 class="rightFoot boldh3">WaterFall Lane</h5>
+
+         <h5 class="rightFoot boldh3" class="subheading">Reykjavik High Street</h5>
+      </div>
+      <div class="footer-section">
+         <br>
+         <h3> <span class="orangetext">Download</span> Our App</h3>
+         <h5> <a href="https://www.apple.com/uk/app-store/"> <img class="footImage2" src="images/appstore.svg"> </a> </h5> <br>
+         <h5> <a href="https://play.google.com/store/games"> <img class="footImage2" src="images/playstore.svg"> </a> </h5>
+      </div>
+      <div class="footer-section">
+         <br>
+         <h3><span class="orangetext">Opening </span> hours </h3>
+         <h5 class="boldh3"> <img class="footImage" src="images/calendar (1).png">09.00 a.m - 19.00 p.m </h5><br>
+         <h5 class="subheading boldh3"> <img class="footImage" src="images/seven (1).png">7 Days a week</h5>
+         <button onclick="topFunction()" id="myBtn" title="Go to top">&#8593;</button>
+
+      </div>
+   </footer>
+
+
+
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+   <script src="app.js" async defer></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+
+</html>
